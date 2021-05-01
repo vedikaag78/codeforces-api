@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <!-- <div class="navbar navbar-dark bg-dark mt-4">
+        <div class="container-fluid">
+          <div class="image-head">
+            <img src="//codeforces.org/s/32872/images/codeforces-logo-with-telegram.png" height="41" >
+            <!-- <img id="mobile-view" src="images/15211315791553239378-512.svg" alt="navpanel" width="31" height="31" >
+            </div>
+            <button type="button" data-toggler="collapse" data-target="navbar-menu" class="navbar-toggler">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="collapse navbar-collapse" id="navbar-menu1">
+                <ul class= "navbar-nav mr-auto" >
+                    <li class="current"> <a href="#" class="nav-link">Home</a> </li>
+                    <li class="current" ><a href="#" class="nav-link">ProblemSet</a> </li>
+                    <li class="current"> <a href="#" class="nav-link">Rules</a> </li>
+              
+                    <li class="current"><a href="#" class="nav-link">Login</a></li>
+                    <li class="current"><a href="#" class="nav-link">Query</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div> -->
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="//codeforces.org/s/32872/images/codeforces-logo-with-telegram.png"
+            height="41"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">ProblemSet</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Rules</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Query</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <section class="fh5co-cover js-fullheight hero" role="banner"
+    style="background: url(images/bg1.jpeg); ">
+    <div class="container">
+      <div class="top">
+        <p class="top-head">
+        <h1><strong><span id="center-text">Welcome to the CodeForces</span></strong></h1>
+        </p>
+
+        <div class="hero-button">
+          <a href="#" class="sub-button">Upcoming Challenges</a>
+          <a href="#" class="sub-button">About us</a>
+        </div>
+
+        <!-- <img class="center-image" id="cimage" src="images/IMG1.jpg"> -->
+
+
+      </div>
+    </div>
+  </section>
+  <hr>
+
+
+  </div>
+
+  <section class="fh5co-cover js-fullheight hero" role="banner"
+    style="background:url(images/bg1.jpeg); opacity:0.6; ">
+    <div class="main-container" >
+      <div class="search-container">
+        <input type="text" name="Username" id="input" class="input" />
+        <button id="search" class="search">Search</button>
+      </div>
+      <div class="info">
+        <div class="left-col">
+          <img src="images/icons8-administrator-male-16.png" class="profimage" id="profimage">
+        </div>
+
+        <div class="name" id="name">Firstname</div><br>
+        <div class="org" id="org">organization</div><br>
+
+        <div class="country" id="country">India</div><br>
+        <div class="rating" id="rating">Rating</div><br>
+        <div class="ranking" id="ranking">Rank</div><br>
+
+      </div>
+    </div>
+  </section>
+  
+
+
+
+  <script>
+    $("#search").click(() => {
+      $.getJSON(
+        "https://codeforces.com/api/user.info?handles=" + $("#input").val(),
+        (data) => {
+          $("#profimage").attr("src", data.result[0].titlePhoto);
+          $("#name").html(data.result[0].firstName);
+          $("#org").html(data.result[0].organization);
+          $("#country").html(data.result[0].country);
+          $("#rating").html(data.result[0].rating);
+          $("#ranking").html(data.result[0].rank);
+        }
+      );
+    });
+  </script>
+</body>
+
+</html>
